@@ -1,0 +1,48 @@
+[project]
+name = "pyoptimus"
+version = "0.1.0"
+description = "Advanced Python Profiling & Optimization Toolkit"
+authors = [{ name="Nicola Marcantognini", email="nicola.marcantognini@outlook.com" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Whitris/pyoptimus"
+Repository = "https://github.com/Whitris/pyoptimus"
+Documentation = "https://github.com/Whitris/pyoptimus#readme"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.dev-dependencies]
+lint = [
+    "ruff"
+]
+test = [
+    "pytest"
+]
+hooks = [
+    "pre-commit"
+]
+
+
+[tool.pytest.ini_options]
+testpaths = [
+    "tests"
+]
+
+[tool.ruff]
+select = ["E", "F", "W"]
+ignore = []
+src = ["src"]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+]
