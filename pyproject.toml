@@ -32,11 +32,39 @@ hooks = [
 testpaths = [
     "tests"
 ]
+pythonpath = ["."]
 
 [tool.ruff]
-select = ["E", "F", "W"]
-ignore = []
-src = ["src"]
+line-length = 100
+fix = true
+exclude = [
+  "build/",
+  "migrations/",
+]
+
+[tool.ruff.lint]
+select = [
+  "E",      # Errori PEP8 base
+  "F",      # Errori di flake8
+  "B",      # Bugbear: errori comuni di coding
+  "I",      # Import sorting
+  "C90",    # Complexity: McCabe
+  "T",      # Type annotations
+  "N",      # Naming style
+  "S",      # Sicurezza (bandit)
+  "D",      # Docstring
+  "UP",     # Aggiornamenti Python moderni
+  "A",      # Built-in shadowing
+  "ASYNC",  # Errori async
+  "TRY",    # Try/Except errori
+  "SIM",    # Semplicità, semplificazione
+  "PT",     # Pytest best practices
+]
+ignore = [
+  "D203",   # Prefer D211 (NO blank line before class)
+  "D213",   # Prefer D212 (multi-line summary on first line)
+  "S101",   # Idiomatic use of pytest assert
+]
 
 [build-system]
 requires = ["pdm-backend"]
